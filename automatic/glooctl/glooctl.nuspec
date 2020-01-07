@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Read this before creating packages: https://chocolatey.org/docs/create-packages -->
+<!-- It is especially important to read the above link to understand additional requirements when publishing packages to the community feed aka dot org (https://chocolatey.org/packages). -->
+
+<!-- Test your packages in a test environment: https://github.com/chocolatey/chocolatey-test-environment -->
+
+<!--
+This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Reference. Chocolatey uses a special version of NuGet.Core that allows us to do more than was initially possible. As such there are certain things to be aware of:
+
+* the package xmlns schema url may cause issues with nuget.exe
+* Any of the following elements can ONLY be used by choco tools - projectSourceUrl, docsUrl, mailingListUrl, bugTrackerUrl, packageSourceUrl, provides, conflicts, replaces
+* nuget.exe can still install packages with those elements but they are ignored. Any authoring tools or commands will error on those elements
+-->
+
+<!-- You can embed software files directly into packages, as long as you are not bound by distribution rights. -->
+<!-- * If you are an organization making private packages, you probably have no issues here -->
+<!-- * If you are releasing to the community feed, you need to consider distribution rights. -->
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- == PACKAGE SPECIFIC SECTION == -->
+    <!-- This section is about this package, although id and version have ties back to the software -->
+    <!-- id is lowercase and if you want a good separator for words, use '-', not '.'. Dots are only acceptable as suffixes for certain types of packages, e.g. .install, .portable, .extension, .template -->
+    <!-- If the software is cross-platform, attempt to use the same id as the debian/rpm package(s) if possible. -->
+    <id>glooctl</id>
+    <!-- version should MATCH as closely as possible with the underlying software -->
+    <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
+    <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
+    <version>1.3.1</version>
+    <packageSourceUrl>https://github.com/adrianchia/chocolatey-packages</packageSourceUrl>
+    <owners>Adrian Chia</owners>
+    <!-- ============================== -->
+
+    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <!-- This section is about the software itself -->
+    <title>glooctl</title>
+    <authors>Solo.io</authors>
+    <!-- projectUrl is required for the community feed -->
+    <projectUrl>https://gloo.solo.io</projectUrl>
+    <iconUrl>https://docs.solo.io/gloo/latest/img/Gloo-01.png</iconUrl>
+    <!-- <copyright>Year Software Vendor</copyright> -->
+    <!-- If there is a license Url available, it is required for the community feed -->
+    <licenseUrl>https://github.com/solo-io/gloo/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/solo-io/gloo</projectSourceUrl>
+    <docsUrl>https://docs.solo.io/gloo/latest/</docsUrl>
+    <!--<mailingListUrl></mailingListUrl>-->
+    <bugTrackerUrl>https://github.com/solo-io/gloo/issues</bugTrackerUrl>
+    <tags>gloo solo.io api-gateway envoy kubernetes</tags>
+    <summary>Gloo is a feature-rich, Kubernetes-native ingress controller, and next-generation API gateway.</summary>
+    <description><![CDATA[
+<h1 align="center">
+    <img src="https://docs.solo.io/gloo/latest/img/Gloo-01.png" alt="Gloo" width="200" height="242">
+  <br>
+  An Envoy-Powered API Gateway
+</h1>
+
+Gloo is a feature-rich, Kubernetes-native ingress controller, and next-generation API gateway. Gloo is exceptional in its function-level routing; its support for legacy apps, microservices and serverless; its discovery capabilities; its numerous features; and its tight integration with leading open-source projects. Gloo is uniquely designed to support hybrid applications, in which multiple technologies, architectures, protocols, and clouds can coexist.
+
+
+[**Installation**](https://gloo.solo.io/installation/) &nbsp; |
+&nbsp; [**Documentation**](https://gloo.solo.io) &nbsp; |
+&nbsp; [**Blog**](https://medium.com/solo-io/announcing-gloo-the-function-gateway-3f0860ef6600) &nbsp; |
+&nbsp; [**Slack**](https://slack.solo.io) &nbsp; |
+&nbsp; [**Twitter**](https://twitter.com/soloio_inc) |
+&nbsp; [**Enterprise Trial**](https://www.solo.io/products/gloo/#enterprise-trial)
+
+<BR><center><img src="https://docs.solo.io/gloo/latest/introduction/gloo_diagram.png" alt="Gloo Architecture" width="906"></center>
+
+## Summary
+
+- [**Using Gloo**](#using-gloo)
+- [**What makes Gloo unique**](#what-makes-gloo-unique)
+
+
+## Using Gloo
+- **Kubernetes ingress controller**: Gloo can function as a feature-rich ingress controller, built on top of the Envoy Proxy.
+- **Next-generation API gateway** : Gloo provides a long list of API gateway features, including rate limiting, circuit breaking, retries, caching, external authentication and authorization, transformation, service-mesh integration, and security.
+- **Hybrid apps**: Gloo creates applications that route to backends implemented as microservices, serverless functions, and legacy apps. This feature can help users to gradually migrate from their legacy code to microservices and serverless; can let users add new functionalities using cloud-native technologies while maintaining their legacy codebase; can be used in cases where different teams in an organization choose different architectures; and more. See [here](https://www.solo.io/hybrid-app) for more on the Hybrid App paradigm.
+
+
+## What makes Gloo unique
+- **Function-level routing allows integration of legacy applications, microservices and serverless**: Gloo can route requests directly to _functions_, which can be a serverless function call (e.g. Lambda, Google Cloud Function, OpenFaaS function, etc.), an API call on a microservice or a legacy service (e.g. a REST API call, OpenAPI operation, XML/SOAP request etc.), or publishing to a message queue (e.g. NATS, AMQP, etc.). This unique ability is what makes Gloo the only API gateway that supports hybrid apps, as well as the only one that does not tie the user to a specific paradigm.
+- **Gloo incorporates vetted open-source projects to provide broad functionality**: Gloo support high-quality features by integrating with top open-source projects, including gRPC, GraphQL, OpenTracing, NATS and more. Gloo's architecture allows rapid integration of future popular open-source projects as they emerge.
+- **Full automated discovery lets users move fast**: Upon launch, Gloo creates a catalog of all available destinations, and continuously maintains it up to date. This takes the responsibility for 'bookkeeping' away from the developers, and guarantees that new feature become available as soon as they are ready. Gloo discovers across IaaS, PaaS and FaaS providers, as well as Swagger, gRPC, and GraphQL.
+- **Gloo integrates intimately with the user's environment**: with Gloo, users are free to choose their favorite tools for scheduling (such as K8s, Nomad, OpenShift, etc), persistence (K8s, Consul, etcd, etc) and security (K8s, Vault).
+
+
+## Next Steps
+- Join us on our Slack channel: [https://slack.solo.io/](https://slack.solo.io/)
+- Follow us on Twitter: [https://twitter.com/soloio_inc](https://twitter.com/soloio_inc)
+- Check out the docs: [https://gloo.solo.io](https://gloo.solo.io)
+- Check out the code and contribute: [Contribution Guide](CONTRIBUTING.md)
+- Contribute to the [Docs](docs/)
+
+### Thanks
+
+**Gloo** would not be possible without the valuable open-source work of projects in the community. We would like to extend a special thank-you to [Envoy](https://www.envoyproxy.io).
+
+
+# Security
+
+*Reporting security issues:* We take Gloo's security very seriously. If you've found a security issue or a potential security issue in Gloo, please DO NOT file a public Github issue, instead send your report privately to [security@solo.io](mailto:security@solo.io).
+]]></description>
+  </metadata>
+  <files>
+    <!-- this section controls what actually gets packaged into the Chocolatey package -->
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+    <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
+  </files>
+</package>
