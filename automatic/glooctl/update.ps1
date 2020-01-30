@@ -1,6 +1,6 @@
 ﻿import-module au -Force
 
-$releases = 'https://github.com/solo-io/gloo/releases/latest'
+$releases = 'https://github.com/solo-io/gloo/releases/tag/v1.3.3'
 
 
 function global:au_BeforeUpdate {
