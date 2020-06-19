@@ -2,13 +2,13 @@
 $ErrorActionPreference = 'Stop';
 
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'https://github.com/buildpacks/pack/releases/download/v0.11.0/pack-v0.11.0-windows.zip'
+$url        = 'https://github.com/buildpacks/pack/releases/download/v0.11.2/pack-v0.11.2-windows.zip'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   unzipLocation = $toolsDir
   url           = $url
-  checksum      = '31ad54e6bd1b0d898cd22687c47366c5295b26d8f67b0285426e8e86c01c5a28'
+  checksum      = '418d0967d9393e0d628e1b3084c3980678002b725736b29ae60547142a269a77'
   checksumType  = 'sha256'
 }
 
