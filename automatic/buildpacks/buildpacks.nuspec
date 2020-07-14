@@ -37,7 +37,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <authors>Cloud Native Buildpacks Authors</authors>
     <!-- projectUrl is required for the community feed -->
     <projectUrl>https://github.com/buildpacks/pack</projectUrl>
-    <iconUrl>https://rawcdn.githack.com/buildpacks/artwork/36f02fae98ed82bb3175918796b6cca7acb813df/light-background/logo-light.png</iconUrl>
+    <!--<iconUrl>https://rawcdn.githack.com/buildpacks/artwork/36f02fae98ed82bb3175918796b6cca7acb813df/light-background/logo-light.png</iconUrl>-->
     <!-- <copyright>Year Software Vendor</copyright> -->
     <!-- If there is a license Url available, it is required for the community feed -->
     <licenseUrl>https://github.com/buildpacks/pack/blob/master/LICENSE</licenseUrl>
