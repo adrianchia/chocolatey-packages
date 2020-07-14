@@ -33,7 +33,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
 
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
-    <title>buildpacks</title>
+    <title>[deprecated] buildpacks</title>
     <authors>Cloud Native Buildpacks Authors</authors>
     <!-- projectUrl is required for the community feed -->
     <projectUrl>https://github.com/buildpacks/pack</projectUrl>
@@ -48,7 +48,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <bugTrackerUrl>https://github.com/buildpacks/pack/issues</bugTrackerUrl>
     <tags>cloud-native-buildpacks cncf</tags>
     <summary>pack is a CLI implementation of the Platform Interface Specification for Cloud Native Buildpacks.</summary>
-    <description>Package deprecated as this will be maintained by official [buildpacks](https://github.com/buildpacks/pack) from now on</description>
+    <description>Package deprecated as this will be maintained by official [buildpacks](https://github.com/buildpacks/pack) from now</description>
   </metadata>
   <files>
     <!-- this section controls what actually gets packaged into the Chocolatey package -->
