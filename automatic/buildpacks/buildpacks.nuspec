@@ -22,11 +22,11 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- This section is about this package, although id and version have ties back to the software -->
     <!-- id is lowercase and if you want a good separator for words, use '-', not '.'. Dots are only acceptable as suffixes for certain types of packages, e.g. .install, .portable, .extension, .template -->
     <!-- If the software is cross-platform, attempt to use the same id as the debian/rpm package(s) if possible. -->
-    <id>buildpacks</id>
+    <id>[Deprecated] buildpacks</id>
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.11.2</version>
+    <version>0.12.0</version>
     <packageSourceUrl>https://github.com/adrianchia/chocolatey-packages</packageSourceUrl>
     <owners>Adrian Chia</owners>
     <!-- ============================== -->
@@ -48,49 +48,11 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <bugTrackerUrl>https://github.com/buildpacks/pack/issues</bugTrackerUrl>
     <tags>cloud-native-buildpacks cncf</tags>
     <summary>pack is a CLI implementation of the Platform Interface Specification for Cloud Native Buildpacks.</summary>
-    <description>
-# pack - Buildpack CLI
-
-[![Travis Build Status](https://travis-ci.org/buildpacks/pack.svg?branch=master)](https://travis-ci.org/buildpacks/pack/branches)
-[![Go Report Card](https://goreportcard.com/badge/github.com/buildpacks/pack)](https://goreportcard.com/report/github.com/buildpacks/pack)
-[![GoDoc](https://godoc.org/github.com/buildpacks/pack?status.svg)](https://godoc.org/github.com/buildpacks/pack)
-[![GitHub license](https://img.shields.io/github/license/buildpacks/pack)](https://github.com/buildpacks/pack/blob/master/LICENSE)
-[![Slack](https://slack.buildpacks.io/badge.svg)](https://slack.buildpacks.io/)
-
-`pack` makes it easy for...
-- **App Developers** to use buildpacks to convert code into runnable images.
-- **Buildpack Authors** to develop and package buildpacks for distribution.
-- **Operators** to package buildpacks for distribution and maintain applications.
-
-`pack` is a CLI implementation of the [Platform Interface Specification][platform-spec] for [Cloud Native Buildpacks][buildpacks.io].
-
-## Usage
-
-- [Installing][install-pack]
-- [Getting Started][getting-started]
-
-## Contributing
-
-For information on how to contribute to this project including its development
-process see [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Resources
-- [Buildpack Specification](https://github.com/buildpacks/spec/blob/master/buildpack.md)
-- [Platform Specification][platform-spec]
-
-[buildpacks.io]: https://buildpacks.io/
-[install-pack]: https://buildpacks.io/docs/install-pack/
-[getting-started]: https://buildpacks.io/docs/app-journey
-[platform-spec]: https://github.com/buildpacks/spec/blob/master/platform.md
-
-**Please Note**: This is an automatically updated package. If you find it is
-out of date by more than a day or two, please contact the maintainer(s) and
-let them know the package is no longer updating correctly.
-</description>
+    <description>Package deprecated as this will be maintained by official [buildpacks](https://github.com/buildpacks/pack) from now on</description>
   </metadata>
   <files>
     <!-- this section controls what actually gets packaged into the Chocolatey package -->
-    <file src="tools\**" target="tools" />
+    <!--<file src="tools\**" target="tools" />-->
     <!--Building from Linux? You may need this instead: <file src="tools/**" target="tools" />-->
   </files>
 </package>
