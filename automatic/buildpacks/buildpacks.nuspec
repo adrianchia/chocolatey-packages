@@ -49,7 +49,9 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <tags>cloud-native-buildpacks cncf</tags>
     <summary>pack is a CLI implementation of the Platform Interface Specification for Cloud Native Buildpacks.</summary>
     <description>This package is now deprecated as it will be maintained by the official [buildpacks](https://github.com/buildpacks/pack) build from now</description>
-    <dependencies></dependencies>
+    <dependencies>
+      <dependency id="pack" version="0.12.0" />
+    </dependencies>
   </metadata>
   <files>
     <!-- this section controls what actually gets packaged into the Chocolatey package -->
