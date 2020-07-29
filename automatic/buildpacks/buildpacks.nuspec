@@ -26,7 +26,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>0.12.0</version>
+    <version>0.12.1</version>
     <packageSourceUrl>https://github.com/adrianchia/chocolatey-packages</packageSourceUrl>
     <owners>Adrian Chia</owners>
     <!-- ============================== -->
@@ -48,7 +48,9 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <bugTrackerUrl>https://github.com/buildpacks/pack/issues</bugTrackerUrl>
     <tags>cloud-native-buildpacks cncf</tags>
     <summary>pack is a CLI implementation of the Platform Interface Specification for Cloud Native Buildpacks.</summary>
-    <description>This package is now deprecated as it will be maintained by the official [buildpacks](https://github.com/buildpacks/pack) build from now</description>
+    <description>This package is now deprecated as it will be maintained by the official [buildpacks](https://github.com/buildpacks/pack) build from now. 
+    
+    The current chocolatey package would be at [https://chocolatey.org/packages/pack](https://chocolatey.org/packages/pack).</description>
     <dependencies>
       <dependency id="pack" version="0.12.0" />
     </dependencies>
