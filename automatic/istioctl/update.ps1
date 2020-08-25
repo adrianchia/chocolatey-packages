@@ -15,14 +15,14 @@ function global:au_GetLatest {
   $Latest1_7 = getLatestByVersionPrefix -Version "1.7"
   $Latest1_6 = getLatestByVersionPrefix -Version "1.6"
   $Latest1_5 = getLatestByVersionPrefix -Version "1.5"
-  $Latest1_4 = getLatestByVersionPrefix -Version "1.4"
+  # $Latest1_4 = getLatestByVersionPrefix -Version "1.4"
 
   @{
     Streams = [ordered] @{
       '1.7' = @{Version = $Latest1_7.Version; URL = $Latest1_7.URL; Checksum32 = $Latest1_7.Checksum32}
       '1.6' = @{Version = $Latest1_6.Version; URL = $Latest1_6.URL; Checksum32 = $Latest1_6.Checksum32}
       '1.5' = @{Version = $Latest1_5.Version; URL = $Latest1_5.URL; Checksum32 = $Latest1_5.Checksum32}
-      '1.4' = @{Version = $Latest1_4.Version; URL = $Latest1_4.URL; Checksum32 = $Latest1_4.Checksum32}
+      # '1.4' = @{Version = $Latest1_4.Version; URL = $Latest1_4.URL; Checksum32 = $Latest1_4.Checksum32}
     }
   }
 }
