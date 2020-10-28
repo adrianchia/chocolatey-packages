@@ -1,28 +1,6 @@
-﻿import-module au -Force
+import-module au -Force
 
 $releases = 'https://github.com/istio/istio/releases'
-
-function global:au_SearchReplace {
-  @{
-    'tools\chocolateyInstall.ps1' = @{
-      "(^[$]url\s*=\s*)('.*')"      = "`$1'$($Latest.URL)'"
-      "(^\s*checksum\s*=\s*)('.*')" = "`$1'$($Latest.Checksum32)'"
-    }
-  }
-}
-
-function global:au_GetLatest {
-  $Latest1_7 = getLatestByVersionPrefix -Version "1.7"
-  $Latest1_6 = getLatestByVersionPrefix -Version "1.6"
-
-  @{
-    Streams = [ordered] @{
-      '1.7' = @{Version = $Latest1_7.Version; URL = $Latest1_7.URL; Checksum32 = $Latest1_7.Checksum32}
-      '1.6' = @{Version = $Latest1_6.Version; URL = $Latest1_6.URL; Checksum32 = $Latest1_6.Checksum32}
-      '1.5' = @{Version = $Latest1_5.Version; URL = $Latest1_5.URL; Checksum32 = $Latest1_5.Checksum32}
-    }
-  }
-}
 
 function getLatestByVersionPrefix {
     param (
@@ -44,4 +22,5 @@ function getLatestByVersionPrefix {
     return $Latest
   }
 
-update -ChecksumFor none
+$1_7 = getLatestByVersionPrefix -Version "1.7"
+Write-Output $1_7
