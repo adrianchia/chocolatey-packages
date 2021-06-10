@@ -8,7 +8,7 @@ location on <https://github.com/solo-io/gloo/releases/tag/${version}>, Distribut
 and can be verified by doing the following:
 
 1. Download the following:
-  software: <https://github.com/solo-io/gloo/releases/download/v1.8.0-beta19/glooctl-windows-amd64.exe>
+  software: <https://github.com/solo-io/gloo/releases/download/v1.8.0-beta20/glooctl-windows-amd64.exe>
 
 2. Get the checksum using one of the following methods:
   - Using powershell function 'Get-FileHash'
@@ -17,6 +17,6 @@ and can be verified by doing the following:
 3. The checksums should match the following:
 
   checksum type: sha256
-  checksum: 3025DA441C9BB110570A11F1226060210956D62443AC668D224BF97C29B905ED
+  checksum: C4587CC732055B83F799D0854691EB8A76BF06201A88683817699CB9C787B8B7
 
 The file 'LICENSE.txt' has been obtained from <https://github.com/solo-io/gloo/blob/master/LICENSE>
