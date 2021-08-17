@@ -21,7 +21,7 @@ environment:
   # Github token to commit pushed packages to repository
   github_user_repo: adrianchia/chocolatey-packages
   github_api_key:
-    secure: w9J32VSO1M5+A/Z3sy5Sga3imtoRsiE89SZwZdfGqAEHGh2aD1OphY3aFMYpwtgw #https://ci.appveyor.com/tools/encrypt
+    secure: cj2+EBuU7ocYnR3yWocFCwbC/19ti2rKNrT3SpUbjruTk8rfz1fN3Mbzrx+USK2S #https://ci.appveyor.com/tools/encrypt
 
 
   # Mail credentials - for error notifications
