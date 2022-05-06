@@ -14,8 +14,6 @@ function global:au_SearchReplace {
 function global:au_GetLatest {
   $Latest1_13 = getLatestByVersionPrefix -Version "1.13"
   $Latest1_12 = getLatestByVersionPrefix -Version "1.12"
-  $Latest1_11 = getLatestByVersionPrefix -Version "1.11"
-  $Latest1_10 = getLatestByVersionPrefix -Version "1.10"
 
   @{
     Streams = [ordered] @{
