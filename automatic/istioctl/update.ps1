@@ -12,12 +12,12 @@ function global:au_SearchReplace {
 }
 
 function global:au_GetLatest {
-  # $Latest1_15 = getLatestByVersionPrefix -Version "1.15"
+  $Latest1_15 = getLatestByVersionPrefix -Version "1.15"
   $Latest1_14 = getLatestByVersionPrefix -Version "1.14"
 
   @{
     Streams = [ordered] @{
-      # '1.15' = @{Version = $Latest1_15.Version; URL = $Latest1_15.URL; Checksum32 = $Latest1_15.Checksum32}
+      '1.15' = @{Version = $Latest1_15.Version; URL = $Latest1_15.URL; Checksum32 = $Latest1_15.Checksum32}
       '1.14' = @{Version = $Latest1_14.Version; URL = $Latest1_14.URL; Checksum32 = $Latest1_14.Checksum32}
     }
   }
@@ -27,14 +27,17 @@ function getLatestByVersionPrefix {
     param (
       [string]$Version
     )
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
+    $download_page = Invoke-WebRequest -Uri $releases
     $re  = "istioctl-((?!(alpha|beta|rc)).)+-win.zip"
-    $url = $download_page.links | ? href -match $re | ? href -match $Version | select -First 2 -expand href
+    $ReleaseVersion= "releases/" + $Version
+    $url = $download_page.links | ? href -match $Version | ? href -match $ReleaseVersion | select -First 1 -expand href
+    $artifact_page = Invoke-WebRequest -Uri $url
+    $url = $artifact_page.links | ? href -match $re | select -First 2 -expand href
     $version = $url[0] -split '-' | select -Last 1 -Skip 1
-    $url32 = 'https://github.com' + $url[0]
+    $url32 = $url[0]
 
     $checksum_path = "$($pwd)\.$($url[1] -split  '/' | select -Last 1)"
-    $checksum_url = 'https://github.com' + $url[1]
+    $checksum_url = $url[1]
     $wc = New-Object net.webclient
     $wc.Downloadfile($checksum_url, $checksum_path)
     $checksum = (Get-Content $checksum_path -First 1) -split ' ' | select -First 1
