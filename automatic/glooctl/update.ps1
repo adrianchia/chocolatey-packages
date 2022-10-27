@@ -49,9 +49,8 @@ function getLatestByVersionPrefix {
     | Where-Object {$_.name -match $re } `
     | Select-Object -Property browser_download_url
     $checksum_url = $url[1]
-    $checksum_path = "$($pwd)\.$($url[1] -split  '/' | select -Last 1)"
-    $wc = New-Object net.webclient
-    $wc.Downloadfile($checksum_url, $checksum_path)
+    $checksum_path = "$($pwd)\$(Split-Path -Leaf $checksum_url)"
+    Invoke-WebRequest $checksum_url -Outfile $checksum_path
     $checksum = (Get-Content $checksum_path -First 1) -split ' ' | select -First 1
     
     $Latest = @{
