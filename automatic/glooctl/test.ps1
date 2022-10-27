@@ -1,36 +1,6 @@
-﻿import-module au -Force
+import-module au -Force
 
 $releases = 'https://github.com/solo-io/gloo/releases'
-
-
-function global:au_BeforeUpdate {
-    Get-RemoteFiles -Purge -NoSuffix -FileNameBase "glooctl"
-}
-
-
-function global:au_SearchReplace {
-    @{
-      ".\legal\VERIFICATION.txt" = @{
-        "(?i)(^\s*location on\:?\s*)\<.*\>" = "`${1}<$($Latest.ReleaseURL)>"
-        "(?i)(^\s*software.*)\<.*\>"        = "`${1}<$($Latest.URL64)>"
-        "(?i)(^\s*checksum\s*type\:).*"     = "`${1} $($Latest.ChecksumType64)"
-        "(?i)(^\s*checksum\:).*"            = "`${1} $($Latest.Checksum64)"
-      }
-    }
-  }
-
-function global:au_GetLatest {
-
-    $Latest1_11 = getLatestByVersionPrefix -Version "1.11"
-    $Latest1_12 = getLatestByVersionPrefix -Version "1.12"
-
-    @{
-      Streams = [ordered] @{
-        '1.12' = @{Version = $Latest1_12.Version; URL64 = $Latest1_12.URL64; Checksum64 = $Latest1_12.Checksum64; ChecksumType64 = $Latest1_12.ChecksumType64; ReleaseURL = $Latest1_12.ReleaseURL}
-        '1.11' = @{Version = $Latest1_11.Version; URL64 = $Latest1_11.URL64; Checksum64 = $Latest1_11.Checksum64; ChecksumType64 = $Latest1_11.ChecksumType64; ReleaseURL = $Latest1_11.ReleaseURL}
-      }
-    }
-  }
 
 function getLatestByVersionPrefix {
   param (
@@ -50,6 +20,7 @@ function getLatestByVersionPrefix {
     | Select-Object -Property browser_download_url
     $checksum_url = $url[1]
     $checksum_path = "$($pwd)\.$($url[1] -split  '/' | select -Last 1)"
+    Write-Output $checksum_path
     $wc = New-Object net.webclient
     $wc.Downloadfile($checksum_url, $checksum_path)
     $checksum = (Get-Content $checksum_path -First 1) -split ' ' | select -First 1
@@ -64,5 +35,3 @@ function getLatestByVersionPrefix {
     return $Latest
 
 }
-
-update -ChecksumFor none
