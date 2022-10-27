@@ -17,20 +17,8 @@ function getLatestByVersionPrefix {
     | ConvertFrom-Json `
     | Select-Object -ExpandProperty assets `
     | Where-Object {$_.name -match $re } `
-    | Select-Object -Property browser_download_url
-    $checksum_url = $url[1]
-    $checksum_path = "$($pwd)\$(Split-Path -Leaf $checksum_url)"
-    Invoke-WebRequest $checksum_url -Outfile $checksum_path
-    $checksum = (Get-Content $checksum_path -First 1) -split ' ' | select -First 1
-    
-    $Latest = @{
-        URL64 = $url[0]
-        Checksum64 = $checksum
-        ChecksumType64 = 'sha256'
-        Version = $version_without_v
-        ReleaseURL = 'https://github.com/solo-io/gloo/releases/tag/${version}'
-    }
-    return $Latest
+    | Select-Object -ExpandProperty browser_download_url
+    Write-Output $url
 
 }
 

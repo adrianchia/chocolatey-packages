@@ -47,7 +47,8 @@ function getLatestByVersionPrefix {
     | ConvertFrom-Json `
     | Select-Object -ExpandProperty assets `
     | Where-Object {$_.name -match $re } `
-    | Select-Object -Property browser_download_url
+    | Select-Object -ExpandProperty browser_download_url
+    Write-Output $url
     $checksum_url = $url[1]
     $checksum_path = "$($pwd)\$(Split-Path -Leaf $checksum_url)"
     Invoke-WebRequest $checksum_url -Outfile $checksum_path
