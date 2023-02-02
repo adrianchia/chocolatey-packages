@@ -37,7 +37,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <authors>Istio Authors</authors>
     <!-- projectUrl is required for the community feed -->
     <projectUrl>https://github.com/istio/istio</projectUrl>
-    <iconUrl>https://istio.io/latest/img/istio-whitelogo-bluebackground-framed.svg</iconUrl>
+    <iconUrl>https://github.com/cncf/artwork/raw/master/projects/istio/icon/color/istio-icon-color.svg</iconUrl>
     <!-- <copyright>Year Software Vendor</copyright> -->
     <!-- If there is a license Url available, it is required for the community feed -->
     <licenseUrl>https://www.apache.org/licenses/LICENSE-2.0.html</licenseUrl>
