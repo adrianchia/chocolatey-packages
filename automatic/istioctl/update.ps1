@@ -12,13 +12,15 @@ function global:au_SearchReplace {
 }
 
 function global:au_GetLatest {
+  $Latest1_22 = getLatestByVersionPrefix -Version "1.22"
+  $Latest1_21 = getLatestByVersionPrefix -Version "1.21"
   $Latest1_20 = getLatestByVersionPrefix -Version "1.20"
-  $Latest1_19 = getLatestByVersionPrefix -Version "1.19"
 
   @{
     Streams = [ordered] @{
+      '1.22' = @{Version = $Latest1_22.Version; URL = $Latest1_22.URL; Checksum32 = $Latest1_22.Checksum32}
+      '1.21' = @{Version = $Latest1_21.Version; URL = $Latest1_21.URL; Checksum32 = $Latest1_21.Checksum32}
       '1.20' = @{Version = $Latest1_20.Version; URL = $Latest1_20.URL; Checksum32 = $Latest1_20.Checksum32}
-      '1.19' = @{Version = $Latest1_19.Version; URL = $Latest1_19.URL; Checksum32 = $Latest1_19.Checksum32}
     }
   }
 }
