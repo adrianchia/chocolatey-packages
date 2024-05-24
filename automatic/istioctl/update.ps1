@@ -18,7 +18,7 @@ function global:au_GetLatest {
 
   @{
     Streams = [ordered] @{
-      #'1.22' = @{Version = $Latest1_22.Version; URL = $Latest1_22.URL; Checksum32 = $Latest1_22.Checksum32}
+      '1.22' = @{Version = $Latest1_22.Version; URL = $Latest1_22.URL; Checksum32 = $Latest1_22.Checksum32}
       '1.21' = @{Version = $Latest1_21.Version; URL = $Latest1_21.URL; Checksum32 = $Latest1_21.Checksum32}
       '1.20' = @{Version = $Latest1_20.Version; URL = $Latest1_20.URL; Checksum32 = $Latest1_20.Checksum32}
     }
