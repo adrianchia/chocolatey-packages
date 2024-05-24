@@ -12,7 +12,7 @@ function global:au_SearchReplace {
 }
 
 function global:au_GetLatest {
-  #$Latest1_22 = getLatestByVersionPrefix -Version "1.22"
+  $Latest1_22 = getLatestByVersionPrefix -Version "1.22"
   $Latest1_21 = getLatestByVersionPrefix -Version "1.21"
   $Latest1_20 = getLatestByVersionPrefix -Version "1.20"
 
