@@ -21,13 +21,13 @@ function global:au_SearchReplace {
 
 function global:au_GetLatest {
 
+    $Latest1_17 = getLatestByVersionPrefix -Version "1.17"
     $Latest1_16 = getLatestByVersionPrefix -Version "1.16"
-    $Latest1_15 = getLatestByVersionPrefix -Version "1.15"
 
     @{
       Streams = [ordered] @{
+        '1.17' = @{Version = $Latest1_17.Version; URL64 = $Latest1_17.URL64; Checksum64 = $Latest1_17.Checksum64; ChecksumType64 = $Latest1_17.ChecksumType64; ReleaseURL = $Latest1_17.ReleaseURL}
         '1.16' = @{Version = $Latest1_16.Version; URL64 = $Latest1_16.URL64; Checksum64 = $Latest1_16.Checksum64; ChecksumType64 = $Latest1_16.ChecksumType64; ReleaseURL = $Latest1_16.ReleaseURL}
-        '1.15' = @{Version = $Latest1_15.Version; URL64 = $Latest1_15.URL64; Checksum64 = $Latest1_15.Checksum64; ChecksumType64 = $Latest1_15.ChecksumType64; ReleaseURL = $Latest1_15.ReleaseURL}
       }
     }
   }
