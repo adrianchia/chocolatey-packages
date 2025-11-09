@@ -29,3 +29,4 @@ Update-AUPackages.md
 .*.sha256
 .vscode
 file:/
+.idea
