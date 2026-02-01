@@ -2,13 +2,13 @@
 $ErrorActionPreference = 'Stop';
 
 $toolsDir   = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
-$url        = 'https://github.com/istio/istio/releases/download/1.28.2/istioctl-1.28.2-win.zip'
+$url        = 'https://github.com/istio/istio/releases/download/1.28.3/istioctl-1.28.3-win.zip'
 
 $packageArgs = @{
   packageName   = $env:ChocolateyPackageName
   unzipLocation = $toolsDir
   url           = $url
-  checksum      = '81c7b60bf2dc12bbf14615f9689ff7c0f6e04fe7784ca867c431428984ed6739'
+  checksum      = 'c2ef4e427f19b72adecc05cf512a2aa85224cdd5aa7e78ec1b33017b31f74b14'
   checksumType  = 'sha256'
 }
 
